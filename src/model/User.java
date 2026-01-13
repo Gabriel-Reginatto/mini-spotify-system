@@ -14,5 +14,19 @@ public class User {
         this.playlists = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
+    public void criarPlaylist(String nome) {
+        playlists.add(new Playlist());
+    }
 }

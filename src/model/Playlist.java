@@ -1,7 +1,17 @@
 package model;
 
-public class Playlist extends Media {
-    public Playlist(String title, String creator, int duration, Genre genre) {
-        super(title, creator, duration, genre);
+import java.util.ArrayList;
+import java.util.List;
+
+public class Playlist {
+    private String name;
+    private List<Media> mediaList;
+    private User user;
+
+    public Playlist(String nome, User user) {
+        this.name = name;
+        this.mediaList = new ArrayList<>();
     }
+
+
 }
