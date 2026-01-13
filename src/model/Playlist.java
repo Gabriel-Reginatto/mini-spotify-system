@@ -2,6 +2,7 @@ package model;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Playlist {
@@ -24,15 +25,24 @@ public class Playlist {
     }
 
     public List<Media> getMediaList() {
-        return mediaList;
+        return Collections.unmodifiableList(mediaList);
     }
 
-    public void addMedia(Media m) {
-        mediaList.add(m);
+    public boolean addMedia(Media m) {
+        if (m == null) {
+            throw new IllegalArgumentException("Media não pode ser nula");
+        } else if (!mediaList.contains(m)) {
+            mediaList.add(m);
+            return true;
+        }
+        return false;
     }
 
-    public void removeMedia(Media m) {
-        mediaList.remove(m);
+    public boolean removeMedia(Media m) {
+        if (m == null) {
+            throw new IllegalArgumentException("Média não pode ser nula");
+        }
+        return mediaList.remove(m);
     }
 
     public double totalDuration() {
@@ -43,10 +53,12 @@ public class Playlist {
         return total;
     }
 
-    public void listTitle() {
+    public List<String> listTitle() {
+        List<String> titles = new ArrayList<>();
         for (Media media : mediaList) {
-            System.out.println(media.getTitle());
+            titles.add(media.getTitle());
         }
+        return titles;
     }
 
     public Media searchMedia(String title) throws Exception {
@@ -71,8 +83,7 @@ public class Playlist {
 
     @Override
     public String toString() {
-        return "Nome: " + name + " - " +
-                "Duração total: %.2f min" + totalDuration();
+        return String.format("Nome: %s - Duração total: %.2f min", name, totalDuration());
 
     }
 }
