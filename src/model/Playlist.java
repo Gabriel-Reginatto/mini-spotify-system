@@ -60,6 +60,15 @@ public class Playlist {
         );
     }
 
+    public int countMediaByGenre(Genre g) {
+        int count = 0;
+        for (Media media : mediaList) {
+            if (media.getGenre() == g)
+                count++;
+        }
+        return count;
+    }
+
     @Override
     public String toString() {
         return "Nome: " + name + " - " +
