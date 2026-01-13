@@ -43,4 +43,14 @@ public class Catalog {
                                     (genre == null || m.getGenre() == genre))
                 .collect(Collectors.toList());
     }
+
+    public List<Media> listAll() {
+        if (mediaList.isEmpty()) {
+            System.out.println("Catálogo vazio.");
+        }
+        return new ArrayList<>(mediaList);
+    }
+
 }
+
+;
