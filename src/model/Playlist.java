@@ -47,4 +47,13 @@ public class Playlist {
             System.out.println(media.getTitle());
         }
     }
+
+    public Media searchMedia(String title) throws Exception {
+        for (Media media : mediaList) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        throw new Exception("Midia não encontrada na playlist");
+    }
 }
