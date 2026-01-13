@@ -1,5 +1,6 @@
 package model;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,15 @@ public class Playlist {
                 return media;
             }
         }
-        throw new Exception("Midia não encontrada na playlist");
+        throw new Exception(
+                "Mídia não encontrada na playlist!"
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + name + " - " +
+                "Duração total: %.2f min" + totalDuration();
+
     }
 }

@@ -44,4 +44,25 @@ public class User {
         playlists.remove(p);
     }
 
+    public void listPlaylists() {
+        if (playlists.isEmpty()) {
+            System.out.println("Nenhuma playlist criada.");
+            return;
+        }
+
+        for (Playlist p : playlists) {
+            System.out.println("Nome da playlist: " + p.getName() + " - " + p.totalDuration() + " min");
+        }
+    }
+
+    public void addMediaInPlaylist(String playlistName, Media m) {
+        Playlist p = searchPlaylistByName(playlistName);
+        p.addMedia(m);
+    }
+
+    public void removeMediaInPlaylist(String playlistName, Media m) {
+        Playlist p = searchPlaylistByName(playlistName);
+        p.removeMedia(m);
+    }
+
 }
