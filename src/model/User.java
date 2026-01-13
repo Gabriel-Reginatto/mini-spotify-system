@@ -27,19 +27,20 @@ public class User {
         return playlists;
     }
 
-    public void criarPlaylist(String nome) {
-        playlists.add(new Playlist(nome, this));
+    public void createPlaylist(String name) {
+        playlists.add(new Playlist(name, this));
     }
 
-    public Playlist buscarPlaylist(String nome) throws Exception {
+    public Playlist searchPlaylistByName(String name) throws Exception {
         for (Playlist p : playlists) {
-            if (p.getName().equalsIgnoreCase(nome)) return p;
+            if (p.getName().equalsIgnoreCase(name)) return p;
         }
         throw new Exception("Playlist não encontada.");
     }
 
-    public void removerPlayList(Playlist p) {
-
+    public void removePlayList(String name) throws Exception {
+        Playlist p = searchPlaylistByName(name);
+        playlists.remove(p);
     }
 
 }
