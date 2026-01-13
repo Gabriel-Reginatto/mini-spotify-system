@@ -27,6 +27,6 @@ public class User {
     }
 
     public void criarPlaylist(String nome) {
-        playlists.add(new Playlist());
+        playlists.add(new Playlist(nome, this));
     }
 }

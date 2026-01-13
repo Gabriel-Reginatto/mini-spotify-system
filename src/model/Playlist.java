@@ -8,10 +8,22 @@ public class Playlist {
     private List<Media> mediaList;
     private User user;
 
-    public Playlist(String nome, User user) {
+    public Playlist(String name, User user) {
         this.name = name;
+        this.user = user;
         this.mediaList = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public List<Media> getMediaList() {
+        return mediaList;
+    }
 
 }
