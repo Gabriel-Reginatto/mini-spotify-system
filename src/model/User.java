@@ -33,16 +33,13 @@ public class User {
         playlists.add(new Playlist(name, this));
     }
 
-    public Playlist searchPlaylistByName(String name) throws RuntimeException {
+    public Playlist searchPlaylistByName(String name)  {
         for (Playlist p : playlists) {
             if (p.getName().equalsIgnoreCase(name)) return p;
         }
-        throw new PlaylistNaoEncontrada(
-                "Playlist não encontrada, tente novamente!"
-        );
     }
 
-    public void removePlayListByName(String name) throws Exception {
+    public void removePlayListByName(String name) {
         Playlist p = searchPlaylistByName(name);
         playlists.remove(p);
     }

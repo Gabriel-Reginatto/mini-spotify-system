@@ -26,5 +26,19 @@ public class Playlist {
         return mediaList;
     }
 
+    public void addMedia(Media m) {
+        mediaList.add(m);
+    }
 
+    public void removeMedia(Media m) {
+        mediaList.remove(m);
+    }
+
+    public double totalDuration() {
+        double total = 0;
+        for (Media media : mediaList) {
+            total += media.getDuration();
+        }
+        return total;
+    }
 }
