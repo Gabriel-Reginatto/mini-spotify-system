@@ -4,6 +4,7 @@ import exception.PlaylistNaoEncontrada;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class User {
@@ -26,7 +27,7 @@ public class User {
     }
 
     public List<Playlist> getPlaylists() {
-        return playlists;
+        return Collections.unmodifiableList(playlists);
     }
 
     public void createPlaylist(String name) {
@@ -37,6 +38,7 @@ public class User {
         for (Playlist p : playlists) {
             if (p.getName().equalsIgnoreCase(name)) return p;
         }
+        throw new PlaylistNaoEncontrada("Playlist não encontrada: " + name);
     }
 
     public void removePlayListByName(String name) {
@@ -51,18 +53,25 @@ public class User {
         }
 
         for (Playlist p : playlists) {
-            System.out.println("Nome da playlist: " + p.getName() + " - " + p.totalDuration() + " min");
+            System.out.println(p);
         }
     }
 
-    public void addMediaInPlaylist(String playlistName, Media m) {
+    public boolean addMediaInPlaylist(String playlistName, Media m) {
         Playlist p = searchPlaylistByName(playlistName);
-        p.addMedia(m);
+        boolean added = p.addMedia(m);
+        if (!added) {
+            System.out.println("Mídia já existe na playlist: " + m.getTitle());
+        }
+        return added;
     }
 
-    public void removeMediaInPlaylist(String playlistName, Media m) {
+    public boolean removeMediaInPlaylist(String playlistName, Media m) {
         Playlist p = searchPlaylistByName(playlistName);
-        p.removeMedia(m);
+        boolean removed = p.removeMedia(m);
+        if(!removed) {
+            System.out.println("Mídia não encontrada na playlist: " + m.getTitle());
+        }
+        return removed;
     }
-
 }
