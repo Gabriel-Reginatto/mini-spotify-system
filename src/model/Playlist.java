@@ -41,4 +41,10 @@ public class Playlist {
         }
         return total;
     }
+
+    public void listTitle() {
+        for (Media media : mediaList) {
+            System.out.println(media.getTitle());
+        }
+    }
 }
