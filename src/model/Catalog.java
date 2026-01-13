@@ -36,16 +36,11 @@ public class Catalog {
         return new ArrayList<>(mediaList);
     }
 
-    public List<Media> searchByTitle(String title) {
+    public List<Media> search(String title, String creator, Genre genre) {
         return mediaList.stream()
-                .filter(m -> m.getTitle().toLowerCase().contains(title.toLowerCase()))
+                .filter(m -> (title == null || m.getTitle().toLowerCase().contains(title.toLowerCase())) &&
+                                    (creator == null || m.getCreator().toLowerCase().contains(creator.toLowerCase())) &&
+                                    (genre == null || m.getGenre() == genre))
                 .collect(Collectors.toList());
     }
-
-    public List<Media> searchByCreator(String creator) {
-        return mediaList.stream()
-                .filter(m -> m.getCreator().toLowerCase().contains(creator.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
 }
