@@ -1,5 +1,7 @@
 package model;
 
+import exception.PlaylistNaoEncontrada;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +33,16 @@ public class User {
         playlists.add(new Playlist(name, this));
     }
 
-    public Playlist searchPlaylistByName(String name) throws Exception {
+    public Playlist searchPlaylistByName(String name) throws RuntimeException {
         for (Playlist p : playlists) {
             if (p.getName().equalsIgnoreCase(name)) return p;
         }
-        throw new Exception("Playlist não encontada.");
+        throw new PlaylistNaoEncontrada(
+                "Playlist não encontrada, tente novamente!"
+        );
     }
 
-    public void removePlayList(String name) throws Exception {
+    public void removePlayListByName(String name) throws Exception {
         Playlist p = searchPlaylistByName(name);
         playlists.remove(p);
     }
