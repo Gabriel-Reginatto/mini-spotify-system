@@ -29,4 +29,8 @@ public class User {
     public void criarPlaylist(String nome) {
         playlists.add(new Playlist(nome, this));
     }
+
+    public boolean removerPlayList(Playlist p) {
+       return playlists.remove(p);
+    }
 }
