@@ -1,4 +1,4 @@
-package exception;
+package model;
 
 public class PlaylistNaoEncontrada extends RuntimeException {
     public PlaylistNaoEncontrada(String message) {

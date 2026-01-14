@@ -1,8 +1,8 @@
-package model;
+package User;
 
-import exception.PlaylistNaoEncontrada;
+import model.Media;
+import model.Playlist;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,7 +38,9 @@ public class User {
         for (Playlist p : playlists) {
             if (p.getName().equalsIgnoreCase(name)) return p;
         }
-        throw new PlaylistNaoEncontrada("Playlist não encontrada: " + name);
+        throw new model.PlaylistNaoEncontrada(
+                "Playlist não encontrada: " + name
+        );
     }
 
     public void removePlayListByName(String name) {

@@ -1,6 +1,7 @@
 package model;
 
-import java.net.URLEncoder;
+import User.User;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
