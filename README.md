@@ -1,15 +1,15 @@
-- Mini Spotify System
+🎧 Mini Spotify System
 
 Mini Spotify System é uma aplicação Java de console que simula um sistema de streaming de mídias sonoras, inspirado em plataformas como o Spotify.
 O projeto foi desenvolvido com foco em boas práticas de Programação Orientada a Objetos, organização de código e versionamento com Git.
 
-- Visão Geral
+📌 Visão Geral
 
 O sistema permite que usuários interajam com um catálogo de mídias (músicas, podcasts e audiobooks), criem playlists personalizadas e gerenciem suas mídias de forma simples e intuitiva por meio de menus no console.
 
 Este projeto tem caráter educacional, porém segue padrões próximos aos utilizados em aplicações reais.
 
-- Funcionalidades
+✨ Funcionalidades
 Usuário
 
 Criação e gerenciamento de playlists
@@ -42,7 +42,27 @@ Prevenção de duplicação de mídias
 
 Cálculo dinâmico de duração total
 
-- Arquitetura
+🧩 Arquitetura e Estrutura
+mini-spotify-system
+│
+├── model
+│   ├── Media (classe abstrata)
+│   ├── Music
+│   ├── Podcast
+│   ├── AudioBook
+│   ├── Playlist
+│   ├── User
+│   └── Genre (enum)
+│
+├── system
+│   └── SystemManager
+│
+├── menu
+│   ├── UserMenu
+│   └── MenuStreaming
+│
+└── Main.java
+
 
 A arquitetura segue o princípio de separação de responsabilidades, onde:
 
@@ -54,7 +74,7 @@ menu é responsável apenas pela interação com o usuário
 
 Main apenas inicializa e conecta os componentes
 
-- Tecnologias e Ferramentas
+🛠️ Tecnologias e Ferramentas
 
 Java
 
@@ -68,7 +88,7 @@ Git & GitHub
 
 IntelliJ IDEA
 
-- Conceitos Aplicados
+🧠 Conceitos Aplicados
 
 Programação Orientada a Objetos (POO)
 
@@ -88,7 +108,7 @@ Organização em camadas
 
 Versionamento de código com Git
 
-- Execução do Projeto
+▶️ Execução do Projeto
 
 Clone o repositório:
 
@@ -104,11 +124,11 @@ Main.java
 
 Utilize o menu interativo no console para testar as funcionalidades
 
-- Dados de Teste
+🧪 Dados de Teste
 
 O projeto inicia com um catálogo previamente populado no Main, permitindo testar todas as funcionalidades sem necessidade de cadastro manual de mídias.
 
-- Melhorias Futuras
+📈 Melhorias Futuras
 
 Autenticação com senha
 
