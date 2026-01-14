@@ -42,27 +42,7 @@ Prevenção de duplicação de mídias
 
 Cálculo dinâmico de duração total
 
-🧩 Arquitetura e Estrutura
-mini-spotify-system
-│
-├── model
-│   ├── Media (classe abstrata)
-│   ├── Music
-│   ├── Podcast
-│   ├── AudioBook
-│   ├── Playlist
-│   ├── User
-│   └── Genre (enum)
-│
-├── system
-│   └── SystemManager
-│
-├── menu
-│   ├── UserMenu
-│   └── MenuStreaming
-│
-└── Main.java
-
+🛠️ Arquitetura e estrutura
 
 A arquitetura segue o princípio de separação de responsabilidades, onde:
 
