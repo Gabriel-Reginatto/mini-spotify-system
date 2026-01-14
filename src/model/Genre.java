@@ -6,5 +6,8 @@ public enum Genre {
     TRAP,
     JAZZ,
     MPB,
-    POP
+    DRAMA,
+    POP,
+    EDUCATION,
+    PODCAST
 };

@@ -55,6 +55,13 @@ public class Catalog {
         return new ArrayList<>(mediaList);
     }
 
+    public Media searchByTitle(String title) {
+        return mediaList.stream()
+                .filter(m -> m.getTitle().equalsIgnoreCase(title))
+                .findFirst()
+                .orElse(null);
+    }
+
+
 }
 
-;
