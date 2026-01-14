@@ -4,6 +4,7 @@ import User.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SystemManager {
     private List<User> users;
@@ -24,4 +25,16 @@ public class SystemManager {
         return users.add(user);
     }
 
+    public User getUserByEmail(String email) {
+        if (email == null) {
+            throw new IllegalArgumentException(
+                    "Email não pode ser nulo."
+            );
+        }
+        return users.stream()
+                .filter(u -> u.getEmail().equalsIgnoreCase(email))
+                .findFirst()
+                .orElse(null);
+    }
 }
+
