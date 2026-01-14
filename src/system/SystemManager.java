@@ -36,5 +36,20 @@ public class SystemManager {
                 .findFirst()
                 .orElse(null);
     }
+
+    public User login(String email) {
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Email inválido."
+            );
+        }
+        User user = getUserByEmail(email);
+        if (user == null) {
+            throw new IllegalArgumentException(
+                    "Usuário não encontrado."
+            );
+        }
+        return user;
+    }
 }
 
