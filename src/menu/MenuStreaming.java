@@ -41,19 +41,19 @@ public class MenuStreaming {
                     showCatalog();
                     break;
                 case 2:
-
+                    searchMediaMenu();
                     break;
                 case 3:
-
+                    createPlaylistMenu();
                     break;
                 case 4:
-
+                    addMediaToPlaylistMenu();
                     break;
                 case 5:
                     user.listPlaylists();
                     break;
                 case 6:
-
+                    showPlaylistDurationMenu();
                     break;
 
                 case 0:
@@ -87,5 +87,74 @@ public class MenuStreaming {
         System.out.println("Resultados: ");
         results.forEach(System.out::println);
     }
+
+    private void showPlaylistDurationMenu() {
+        if (user.getPlaylists().isEmpty()) {
+            System.out.println("Você não possui playlists");
+            return;
+        }
+
+        user.listPlaylists();
+
+        System.out.println("Digite o nome da playlist: ");
+        String name = scanner.nextLine();
+
+        try {
+            var playlist = user.searchPlaylistByName(name);
+            System.out.println(
+                    "Duração total: " +
+                            playlist.totalDuration() + " minutos"
+            );
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void addMediaToPlaylistMenu() {
+        if (user.getPlaylists().isEmpty()) {
+            System.out.println("Crie uma playlist primeiro.");
+            return;
+        }
+
+        user.listPlaylists();
+        System.out.print("Digite o nome da playlist: ");
+        String playlistName = scanner.nextLine();
+
+        System.out.print("Digite o termo de busca da mídia: ");
+        String term = scanner.nextLine();
+
+        var results = catalog.search(term);
+
+        if (results.isEmpty()) {
+            System.out.println("Nenhuma mídia encontrada.");
+            return;
+        }
+
+        for (int i = 0; i < results.size(); i++) {
+            System.out.println((i + 1) + " - " + results.get(i));
+        }
+
+        System.out.print("Escolha o número da mídia: ");
+        int choice = Integer.parseInt(scanner.nextLine());
+
+        try {
+            user.addMediaInPlaylist(
+                    playlistName,
+                    results.get(choice - 1)
+            );
+            System.out.println("Mídia adicionada com sucesso.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void createPlaylistMenu() {
+        System.out.print("Nome da playlist: ");
+        String name = scanner.nextLine();
+
+        user.createPlaylist(name);
+        System.out.println("Playlist criada com sucesso.");
+    }
+
 }
 
