@@ -73,5 +73,19 @@ public class MenuStreaming {
         }
         catalog.listAll().forEach(System.out::println);
     }
+
+    private void searchMediaMenu() {
+        System.out.println("Digite para a busca: ");
+        String title = scanner.nextLine();
+
+        var results = catalog.search(title);
+
+        if (results.isEmpty()) {
+            System.out.println("Nenhuma mídia encontrada.");
+            return;
+        }
+        System.out.println("Resultados: ");
+        results.forEach(System.out::println);
+    }
 }
 

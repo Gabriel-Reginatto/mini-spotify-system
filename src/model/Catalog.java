@@ -44,6 +44,10 @@ public class Catalog {
                 .collect(Collectors.toList());
     }
 
+    public List<Media> search(String term) {
+        return search(term, term, null);
+    }
+
     public List<Media> listAll() {
         if (mediaList.isEmpty()) {
             System.out.println("Catálogo vazio.");
